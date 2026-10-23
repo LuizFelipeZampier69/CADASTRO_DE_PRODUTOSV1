@@ -1,0 +1,438 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --azul: #2563eb;
+    --azul-hover: #1d4ed8;
+    --fundo: #f1f5f9;
+    --branco: #ffffff;
+    --texto: #1e293b;
+    --texto-secundario: #64748b;
+    --borda: #e2e8f0;
+    --vermelho: #dc2626;
+    --verde: #15803d;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--fundo);
+    color: var(--texto);
+    padding: 24px;
+    line-height: 1.5;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    padding: 11px 16px;
+    font-weight: bold;
+    transition: background 0.2s, transform 0.15s;
+}
+
+button:hover {
+    transform: translateY(-1px);
+}
+
+button:focus-visible,
+input:focus-visible {
+    outline: 3px solid #93c5fd;
+    outline-offset: 2px;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+/* ===== Container ===== */
+
+.container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* ===== Cabeçalho ===== */
+
+.cabecalho {
+    text-align: center;
+    margin: 10px 0 28px;
+}
+
+.icone-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: #dbeafe;
+    border-radius: 16px;
+    font-size: 30px;
+    margin-bottom: 12px;
+}
+
+.cabecalho h1 {
+    font-size: 30px;
+    margin-bottom: 6px;
+}
+
+.cabecalho p {
+    color: var(--texto-secundario);
+}
+
+/* ===== Cartões ===== */
+
+.card {
+    background: var(--branco);
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 15px rgba(15, 23, 42, 0.04);
+    margin-bottom: 22px;
+}
+
+.card h2 {
+    font-size: 20px;
+    margin-bottom: 18px;
+}
+
+/* ===== Formulário ===== */
+
+#produto-form {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.form-group input,
+#pesquisa {
+    width: 100%;
+    min-width: 0;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    background: #fff;
+    color: var(--texto);
+}
+
+.form-group input:focus,
+#pesquisa:focus {
+    border-color: var(--azul);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* ===== Botões ===== */
+
+.btn-primary {
+    background: var(--azul);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--azul-hover);
+}
+
+.btn-secondary {
+    background: #e2e8f0;
+    color: #334155;
+}
+
+.btn-secondary:hover {
+    background: #cbd5e1;
+}
+
+.btn-danger {
+    background: var(--vermelho);
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #b91c1c;
+}
+
+.btn-editar {
+    background: #f59e0b;
+    color: #fff;
+    padding: 7px 10px;
+    font-size: 12px;
+}
+
+.btn-editar:hover {
+    background: #d97706;
+}
+
+.btn-remover {
+    background: #ef4444;
+    color: white;
+    padding: 7px 10px;
+    font-size: 12px;
+}
+
+.btn-remover:hover {
+    background: #b91c1c;
+}
+
+/* ===== Mensagens ===== */
+
+.mensagem {
+    display: none;
+    margin-top: 15px;
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.mensagem.sucesso {
+    display: block;
+    color: var(--verde);
+    background: #dcfce7;
+}
+
+.mensagem.erro {
+    display: block;
+    color: #b91c1c;
+    background: #fee2e2;
+}
+
+/* ===== Resumo do estoque ===== */
+
+.resumo-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    background: var(--branco);
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    padding: 22px;
+    margin-bottom: 22px;
+    box-shadow: 0 4px 15px rgba(15, 23, 42, 0.04);
+}
+
+.resumo-label,
+.resumo-info span {
+    display: block;
+    color: var(--texto-secundario);
+    font-size: 13px;
+}
+
+#total-estoque {
+    color: var(--verde);
+    font-size: 27px;
+    margin-top: 4px;
+}
+
+.resumo-info strong {
+    display: block;
+    font-size: 24px;
+    margin-top: 4px;
+}
+
+/* ===== Cabeçalho da tabela ===== */
+
+.tabela-card {
+    padding: 24px;
+}
+
+.tabela-cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 20px;
+}
+
+.tabela-cabecalho h2 {
+    margin-bottom: 4px;
+}
+
+.tabela-cabecalho p {
+    color: var(--texto-secundario);
+    font-size: 14px;
+}
+
+#pesquisa {
+    max-width: 280px;
+}
+
+/* ===== Tabela ===== */
+
+.tabela-scroll {
+    width: 100%;
+    overflow-x: auto;
+}
+
+#tabela-produtos {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+#tabela-produtos th,
+#tabela-produtos td {
+    padding: 13px 12px;
+    text-align: center;
+    border-bottom: 1px solid var(--borda);
+}
+
+#tabela-produtos th {
+    background: #eff6ff;
+    color: #1e40af;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+#tabela-produtos td {
+    font-size: 14px;
+}
+
+#tabela-produtos tbody tr:nth-child(even) {
+    background: #f8fafc;
+}
+
+#tabela-produtos tbody tr:hover {
+    background: #eff6ff;
+}
+
+#tabela-produtos td:first-child {
+    text-align: left;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+#tabela-produtos td:last-child {
+    white-space: nowrap;
+}
+
+#tabela-produtos td button {
+    margin: 2px;
+}
+
+.mensagem-vazia {
+    text-align: center;
+    color: var(--texto-secundario);
+    padding: 25px 10px;
+}
+
+.mensagem-vazia.oculta {
+    display: none;
+}
+
+/* ===== Rodapé ===== */
+
+.rodape {
+    padding: 15px 0 5px;
+    text-align: center;
+    color: var(--texto-secundario);
+    font-size: 13px;
+}
+
+/* ===== Responsividade ===== */
+
+@media (max-width: 650px) {
+    body {
+        padding: 12px;
+    }
+
+    .cabecalho {
+        margin-top: 8px;
+    }
+
+    .cabecalho h1 {
+        font-size: 25px;
+    }
+
+    .card {
+        padding: 17px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .form-actions button {
+        width: 100%;
+    }
+
+    .resumo-container {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 16px;
+        padding: 18px;
+    }
+
+    .resumo-container .btn-danger {
+        width: 100%;
+    }
+
+    #total-estoque {
+        font-size: 24px;
+    }
+
+    .tabela-cabecalho {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    #pesquisa {
+        max-width: none;
+    }
+
+    #tabela-produtos {
+        min-width: 650px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}

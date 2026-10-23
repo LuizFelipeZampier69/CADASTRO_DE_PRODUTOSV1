@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#2563eb">
+    <title>Sistema de Estoque - POO</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="container">
+        <header class="cabecalho">
+            <div class="icone-logo">📦</div>
+            <h1>Sistema de Estoque</h1>
+            <p>Gerencie seus produtos de maneira simples e organizada.</p>
+        </header>
+
+        <section class="card">
+            <h2 id="titulo-formulario">Cadastrar Produto</h2>
+
+            <form id="produto-form" novalidate>
+                <div class="form-group">
+                    <label for="nome">Nome do produto</label>
+                    <input
+                        type="text"
+                        id="nome"
+                        placeholder="Ex.: Notebook"
+                        maxlength="100"
+                        autocomplete="off"
+                        required
+                    >
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="preco">Preço (R$)</label>
+                        <input
+                            type="number"
+                            id="preco"
+                            placeholder="Ex.: 3500.00"
+                            min="0.01"
+                            step="0.01"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="quantidade">Quantidade</label>
+                        <input
+                            type="number"
+                            id="quantidade"
+                            placeholder="Ex.: 5"
+                            min="1"
+                            step="1"
+                            required
+                        >
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" id="botao-salvar" class="btn-primary">
+                        Adicionar Produto
+                    </button>
+
+                    <button type="button" id="botao-cancelar" class="btn-secondary" hidden>
+                        Cancelar edição
+                    </button>
+                </div>
+            </form>
+
+            <p id="mensagem" class="mensagem" role="status" aria-live="polite"></p>
+        </section>
+
+        <section class="resumo-container">
+            <div>
+                <span class="resumo-label">Valor total do estoque</span>
+                <h2 id="total-estoque">R$ 0,00</h2>
+            </div>
+
+            <div class="resumo-info">
+                <span>Produtos cadastrados</span>
+                <strong id="quantidade-produtos">0</strong>
+            </div>
+
+            <button type="button" id="limpar-tabela" class="btn-danger">
+                Limpar tudo
+            </button>
+        </section>
+
+        <section class="card tabela-card">
+            <div class="tabela-cabecalho">
+                <div>
+                    <h2>Produtos cadastrados</h2>
+                    <p>Consulte, edite ou remova seus produtos.</p>
+                </div>
+
+                <input
+                    type="search"
+                    id="pesquisa"
+                    placeholder="Pesquisar produto..."
+                    aria-label="Pesquisar produtos"
+                >
+            </div>
+
+            <div class="tabela-scroll">
+                <table id="tabela-produtos">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Preço unitário</th>
+                            <th>Quantidade</th>
+                            <th>Subtotal</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="lista-produtos"></tbody>
+                </table>
+            </div>
+
+            <p id="mensagem-vazia" class="mensagem-vazia">
+                Nenhum produto cadastrado.
+            </p>
+        </section>
+
+        <footer class="rodape">
+            Sistema de Estoque · Programação Orientada a Objetos
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
